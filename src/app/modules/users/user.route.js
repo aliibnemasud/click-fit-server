@@ -1,5 +1,5 @@
-const express = require('express');
-const { getAllUser, postUser } = require('./user.controller');
+const express = require("express");
+const { getAllUser, postUser } = require("./user.controller");
 const router = express.Router();
 
 router
@@ -7,7 +7,8 @@ router
 
   .get(getAllUser)
 
-  .post(postUser)
+  .post(postUser);
 
+router.route("/addUser").post(postUser);
 
- module.exports = router;
+module.exports = router;
