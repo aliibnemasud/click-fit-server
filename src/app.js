@@ -17,14 +17,9 @@ app.post("/fileUpload", uploader.single("file"), async (req, res)=> {
     }
 });
 
-// app.use(express.static(path.join(__dirname, 'upload_images')));
+//  This is using to make upload images folder public accessible
 
-// app.use(express.static('upload_images'))
-
-console.log()
-
-app.use('/static', express.static(path.join(__dirname, '..', 'upload_images')))
-
+app.use('/static', express.static(path.join(__dirname, '..', 'upload_images')));
 
 
 app.get("/", (req, res) => {
