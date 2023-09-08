@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllUser } = require('./user.controller');
+const { getAllUser, postUser } = require('./user.controller');
 const router = express.Router();
 
 router
@@ -7,9 +7,7 @@ router
 
   .get(getAllUser)
 
-  .post((req, res) => {
-    res.json({ status: "Post Ok" });
-  })
+  .post(postUser)
 
 
  module.exports = router;
