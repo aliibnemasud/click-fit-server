@@ -1,26 +1,19 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const multer = require("multer");
-const uploader = require("./app/uploader");
 const path = require("path");
+const userRouter = require("./app/modules/users/user.route.js");
+const fileRoutes = require("./app/modules/files/files.route");
 
 app.use(cors());
 app.use(express.json());
 
-app.post("/fileUpload", uploader.single("file"), async (req, res)=> {
+app.use("/user", userRouter);
 
-    try {
-        res.status(200).json(req.file)        
-    } catch (error) {
-        console.log(error);
-    }
-});
+app.use("/file", fileRoutes);
 
 //  This is using to make upload images folder public accessible
-
-app.use('/static', express.static(path.join(__dirname, '..', 'upload_images')));
-
+app.use("/images", express.static(path.join(__dirname, "..", "upload_images")));
 
 app.get("/", (req, res) => {
   res.send("Click Fit Server is running....");

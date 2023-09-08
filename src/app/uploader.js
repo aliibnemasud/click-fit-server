@@ -24,8 +24,6 @@ const uploader = multer({
   limits: {
     fileSize: 5000000
   }
-  
-
 });
 
 
