@@ -35,7 +35,7 @@ const postUser = (req, res) => {
 const updateUser = (req, res) => {
   try {
     const id = req.params.id;
-    const sql = `UPDATE users SET ? WHERE id= ?`;
+    const sql = `UPDATE users SET ? WHERE ID= ?`;
     const updatedData = req.body;
     if (id && updatedData) {
       connection.query(sql, [updatedData, id], (err, result) => {
@@ -56,7 +56,7 @@ const updateUser = (req, res) => {
 const getSingleUser = (req, res) => {
   try {
     const id = req.params.id;
-    const sql = `SELECT * FROM users WHERE id=${id}`;
+    const sql = `SELECT * FROM users WHERE ID=${id}`;
     connection.query(sql, (err, result) => {
       if (err) {
         console.log(err);
@@ -73,7 +73,7 @@ const deleteUser = (req, res) => {
   try {
     const id = req.params.id;
     if (id) {    
-      const sql = `DELETE FROM users WHERE id=${id}`;
+      const sql = `DELETE FROM users WHERE ID=${id}`;
       connection.query(sql, (err, result) => {
         if (err) {
           console.log(err);
